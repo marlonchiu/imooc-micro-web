@@ -7,6 +7,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/energy'
+  },
+  {
     // 新能源
     path: '/energy',
     name: 'Energy',
