@@ -1,0 +1,13 @@
+{
+  "name": "imooc-micro-web",
+  "version": "1.0.0",
+  "description": "create micro project for myself",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/run.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2"
+  }
+}
