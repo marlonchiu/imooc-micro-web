@@ -30,3 +30,15 @@ npm start
 > 车系、对比、询价页、金融购车、降价频道 vue3
 
 > 资讯、视频 react15
+
+## 构建一个后端服务
+
+```shell script
+npm install koa-generator -g
+
+koa2 service
+
+# 服务修改自动更新
+npm install supervisor --save-dev
+# "start": "supervisor bin/www",
+```
