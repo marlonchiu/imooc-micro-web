@@ -5,7 +5,7 @@ const filePath = {
   react16: path.join(__dirname, '../react16'),
   vue2: path.join(__dirname, '../vue2'),
   vue3: path.join(__dirname, '../vue3'),
-  // service: path.join(__dirname, '../service')
+  service: path.join(__dirname, '../service')
 }
 
 module.exports = filePath

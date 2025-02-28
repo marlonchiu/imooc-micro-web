@@ -41,4 +41,7 @@ koa2 service
 # 服务修改自动更新
 npm install supervisor --save-dev
 # "start": "supervisor bin/www",
+
+# 跨域
+npm install koa2-cors --save-dev
 ```
