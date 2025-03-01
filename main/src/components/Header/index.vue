@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import UserInfo from './user-info.vue'
-import MainNav from './main-nav.vue'
+import UserInfo from './UserInfo.vue'
+import MainNav from './MainNav.vue'
 
 export default {
   name: 'Header',

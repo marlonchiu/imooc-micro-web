@@ -1,7 +1,6 @@
 <template>
   <div class="micro-main-body-container">
-    <!-- <Loading v-show="loadingStatus"></Loading> -->
-    <Loading ></Loading>
+    <Loading v-show="loadingStatus"></Loading>
 
     <!-- 子应用容器 -->
     <!-- <div id="micro-container" v-show="!loadingStatus"></div> -->
@@ -9,14 +8,15 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import Loading from './loading.vue'
-import { loading } from '@/store'
 export default {
   name: 'micro-body',
   components: { Loading },
   setup() {
+    const loadingStatus = ref(true)
     return {
-      loadingStatus: loading.loadingStatus
+      loadingStatus
     }
   }
 }
