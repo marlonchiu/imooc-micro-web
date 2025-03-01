@@ -4,32 +4,28 @@ import BasicMap from './src/router/index.jsx'
 import './index.scss'
 // import { setMain } from './src/utils/global'
 
-ReactDOM.render(<BasicMap />, document.getElementById('app-react'))
+const render = () => {
+  ReactDOM.render(<BasicMap />, document.getElementById('app-react'))
+}
 
-// const render = () => {
-//   ReactDOM.render((
-//     <BasicMap />
-//   ), document.getElementById('app-react'))
-// }
+if (!window.__MICRO_WEB__) {
+  render()
+}
 
-// if (!window.__MICRO_WEB__) {
-//   render()
-// }
+export async function bootstrap() {
+  console.log('react15 bootstrap')
+}
 
-// export async function bootstrap() {
-//   console.log('react bootstrap')
-// }
+export async function mount() {
+  // setMain(app) // 记录主应用传过来的方法
+  console.log('react15 mount')
+  render()
+}
 
-// export async function mount(app) {
-//   setMain(app) // 记录主应用传过来的方法
-//   console.log('react mount')
-//   render()
-// }
-
-// export async function unmount(ctx) {
-//   console.log('react unmount')
-//   const { container } = ctx
-//   if (container) {
-//     document.querySelector(container).innerHTML = ''
-//   }
-// }
+export async function unmount(ctx) {
+  console.log('react15 unmount')
+  const { container } = ctx
+  if (container) {
+    document.querySelector(container).innerHTML = ''
+  }
+}
