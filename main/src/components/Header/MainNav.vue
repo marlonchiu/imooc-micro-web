@@ -35,25 +35,15 @@
 
 <script>
 import { ref, nextTick, watch } from 'vue'
-import { headerState } from '../../store'
-// import { useRouter, useRoute } from 'vue-router'
-import { useRoute } from 'vue-router'
+// import { headerState } from '../../store'
+import { NAV_LIST } from '../../const/nav'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'MainNav',
   setup() {
-    const NAV_LIST = [
-      { name: '首页', status: true, value: 0, url: '/vue3/#/index', hash: '' },
-      { name: '资讯', status: false, value: 1, url: '/react15#/information' },
-      { name: '视频', status: false, value: 2, url: '/react15#/video', hash: '' },
-      { name: '选车', status: false, value: 3, url: '/vue3/#/select', hash: '' },
-      { name: '新能源', status: false, value: 4, url: '/vue2#/energy', hash: '' },
-      { name: '新车', status: false, value: 5, url: '/react16#/new-car', hash: '' },
-      { name: '排行', status: false, value: 6, url: '/react16#/rank', hash: '' }
-    ]
-
     const currentIndex = ref(0)
-    // const router = useRouter()
+    const router = useRouter()
     const route = useRoute()
 
     watch(
@@ -61,7 +51,8 @@ export default {
       (newVal) => {
         for (let i = 0, len = NAV_LIST.length; i < len; i++) {
           if (NAV_LIST[i].url && newVal.fullPath.indexOf(NAV_LIST[i].url) !== -1) {
-            headerState.setCurrentIndex(i)
+            // headerState.setCurrentIndex(i)
+            currentIndex.value = i
             return
           }
         }
@@ -89,8 +80,9 @@ export default {
 
     const setCurrentIndex = (item, index) => {
       console.log(item)
+      if (item.url === route.fullPath) return
       currentIndex.value = index
-      // router.push(`${item.url}`)
+      router.push(`${item.url}`)
     }
 
     return {

@@ -5,10 +5,10 @@ import * as appInfo from '../store'
 export const navList = [
   {
     name: 'react15', // 唯一
+    activeRule: '/react15',
+    container: '#micro-container',
     entry: '//localhost:9002/',
     loading,
-    container: '#micro-container',
-    activeRule: '/react15',
     appInfo
   },
   {

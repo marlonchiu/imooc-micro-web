@@ -20,7 +20,7 @@ import { headerState, footerState, crumbsState } from './store'
 import { useRoute, useRouter } from 'vue-router'
 import { watch } from 'vue'
 import { routerLink } from './store/routerLink'
-import { loginStatus } from './store/login'
+// import { loginStatus } from './store/login'
 
 export default {
   name: 'App',
@@ -35,10 +35,11 @@ export default {
     const router = useRouter()
     const route = useRoute()
     routerLink.value = router
-    watch(route, (val) => {
-      if (!loginStatus.value && val.fullPath.indexOf('login') === -1) {
-        router.push('/react16#/login')
-      }
+    watch(route, (newVal) => {
+      console.log(newVal)
+      // if (!loginStatus.value && val.fullPath.indexOf('login') === -1) {
+      //   router.push('/react16#/login')
+      // }
     })
 
     return {
