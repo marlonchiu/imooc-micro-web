@@ -13,12 +13,12 @@ if (!window.__MICRO_WEB__) {
 }
 
 export async function bootstrap() {
-  console.log('react bootstrap')
+  console.log('react16 bootstrap')
 }
 
 export async function mount(app) {
   setMain(app)
-  console.log('react mount')
+  console.log('react16 mount')
   render()
 
   // setTimeout(() => {
@@ -31,7 +31,7 @@ export async function mount(app) {
 }
 
 export async function unmount(ctx) {
-  console.log('react unmout')
+  console.log('react16 unmount')
   const { container } = ctx
   if (container) {
     document.querySelector(container).innerHTML = ''
