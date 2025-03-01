@@ -19,8 +19,8 @@ export const registerApp = (list) => {
         }
       ],
       destroyed: [
-        (app) => {
-          console.log('卸载完成 -- ', app.name)
+        () => {
+          // console.log('卸载完成 -- ', app.name)
         }
       ]
     }

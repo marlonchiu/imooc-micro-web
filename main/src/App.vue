@@ -35,8 +35,8 @@ export default {
     const router = useRouter()
     const route = useRoute()
     routerLink.value = router
-    watch(route, (newVal) => {
-      console.log(newVal)
+    watch(route, () => {
+      // console.log(newVal)
       // if (!loginStatus.value && val.fullPath.indexOf('login') === -1) {
       //   router.push('/react16#/login')
       // }

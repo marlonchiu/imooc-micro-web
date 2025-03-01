@@ -36,9 +36,20 @@ export const filterApp = (key, rule) => {
 
 // 查看当前路由是否有变化
 export const isTurnChild = () => {
+  window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__
   if (window.__CURRENT_SUB_APP__ === window.location.pathname) {
     return false
   }
+
+  const currentSubApp = window.location.pathname.match(/(\/\w+)/)
+
+  if (!currentSubApp) {
+    return false
+  }
+
+  // 当前路由以改变，修改当前路由
+  window.__CURRENT_SUB_APP__ = currentSubApp[0]
+  // console.log(window.__ORIGIN_APP__, window.__CURRENT_SUB_APP__)
 
   return true
 }
