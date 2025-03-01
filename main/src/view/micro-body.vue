@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import Loading from './loading.vue'
+import { loading } from '../store'
+
 export default {
   name: 'micro-body',
   components: { Loading },
   setup() {
-    const loadingStatus = ref(true)
     return {
-      loadingStatus
+      loadingStatus: loading.loadingStatus
     }
   }
 }

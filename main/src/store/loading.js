@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-export const loadingStatus = ref(false)
+export const loadingStatus = ref(true)
 
 // 开启loading
 export const openLoading = () => {
