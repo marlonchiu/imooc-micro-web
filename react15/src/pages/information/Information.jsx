@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: marlonchiu
+ * @Date: 2025-02-28 21:48:11
+ * @LastEditors: marlonchiu
+ * @LastEditTime: 2025-03-01 10:31:14
+ */
 import React from 'react'
 import { main } from '../../utils/global'
 import './Information.scss'
@@ -20,7 +27,7 @@ class Information extends React.Component {
   }
   componentDidMount() {
     // 设置面包屑内容
-    main.appInfo.crumbsState.setCrumbs(['首页', '选车', '丰田', '凯美瑞', '资讯列表'])
+    // main.appInfo.crumbsState.setCrumbs(['首页', '选车', '丰田', '凯美瑞', '资讯列表'])
   }
 
   render() {
@@ -35,7 +42,7 @@ class Information extends React.Component {
           </div>
 
           {/* 右侧新闻区 */}
-          <div className='information-news'>
+          <div className="information-news">
             <InformationNews />
           </div>
         </div>
