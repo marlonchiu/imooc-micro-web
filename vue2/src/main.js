@@ -5,35 +5,34 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  render: (h) => h(App)
-}).$mount('#app-vue')
+let instance = null
+console.log(instance)
 
-// let instance = null
-// console.log(instance)
-// export async function bootstrap() {
-//   console.log('vue app bootstraped')
-// }
-// if (!window.__MICRO_WEB__) {
-//   instance = new Vue({
-//     router,
-//     store,
-//     render: (h) => h(App)
-//   }).$mount('#app-vue')
-// }
+const render = () => {
+  new Vue({
+    router,
+    render: (h) => h(App)
+  }).$mount('#app-vue')
+}
 
-// export async function mount() {
-//   instance = new Vue({
-//     router,
-//     store,
-//     render: (h) => h(App)
-//   }).$mount('#app-vue')
-// }
-// export async function unmount(ctx) {
-//   instance = null
-//   const { container } = ctx
-//   if (container) {
-//     document.querySelector(container).innerHTML = ''
-//   }
-// }
+if (!window.__MICRO_WEB__) {
+  render()
+}
+
+export async function bootstrap() {
+  console.log('vue app bootstrap 加载')
+}
+
+export async function mount() {
+  render()
+  console.log('vue app mount 渲染')
+}
+
+export async function unmount() {
+  console.log('vue app unmount 卸载')
+  // instance = null
+  // const { container } = ctx
+  // if (container) {
+  //   document.querySelector(container).innerHTML = ''
+  // }
+}
