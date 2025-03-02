@@ -14,6 +14,9 @@ export const lifecycle = async () => {
   }
 
   if (prevApp && prevApp.unmount) {
+    if (prevApp.proxy) {
+      prevApp.proxy.inactive() // 将沙箱销毁
+    }
     // 卸载上一个应用
     await unmount(prevApp)
   }

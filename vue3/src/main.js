@@ -18,6 +18,7 @@ export async function bootstrap() {
 }
 
 export async function mount() {
+  window.a = 1
   render()
   console.log('vue3.0 app mount 渲染')
 }

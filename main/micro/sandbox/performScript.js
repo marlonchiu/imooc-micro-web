@@ -17,7 +17,7 @@ export const performScript = (script, appName, global) => {
 
 // 执行应用中的 js 内容 eval篇
 
-export const performScriptForEval = (script, appName) => {
+export const performScriptForEval = (script, appName, global) => {
   // eval(script) // app module mount
 
   const scriptText = `
@@ -27,7 +27,7 @@ export const performScriptForEval = (script, appName) => {
     }
   `
 
-  return eval(scriptText).call(window, window)
+  return eval(scriptText).call(global, global)
 
   // const globalWindow = (0, eval)(window)
   // globalWindow.proxy = global
