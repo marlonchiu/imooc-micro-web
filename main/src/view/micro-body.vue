@@ -3,7 +3,7 @@
     <Loading v-show="loadingStatus"></Loading>
 
     <!-- 子应用容器 -->
-    <!-- <div id="micro-container" v-show="!loadingStatus"></div> -->
+    <div id="micro-container" v-show="!loadingStatus"></div>
   </div>
 </template>
 

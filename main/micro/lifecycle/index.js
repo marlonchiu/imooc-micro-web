@@ -1,5 +1,6 @@
 import { findAppByRoute } from '../util'
 import { getMainLifecycle } from '../const/mainLifeCycles'
+import { htmlLoader } from '../loader'
 
 // 改变了路由，重新装载新的子应用
 export const lifecycle = async () => {
@@ -31,7 +32,7 @@ export const bootstrap = async (app) => {
   await runMainLifeCycle('beforeLoad')
 
   // 获取子应用的dom结构
-  // await htmlLoader(app)
+  await htmlLoader(app)
   app && app.bootstrap && (await app.bootstrap())
 
   const appContext = null

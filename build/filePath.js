@@ -1,6 +1,6 @@
 const path = require('path')
 const filePath = {
-  // main: path.join(__dirname, '../main'),
+  main: path.join(__dirname, '../main'),
   react15: path.join(__dirname, '../react15'),
   react16: path.join(__dirname, '../react16'),
   vue2: path.join(__dirname, '../vue2'),
