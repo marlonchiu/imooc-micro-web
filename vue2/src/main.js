@@ -9,7 +9,7 @@ let instance = null
 console.log(instance)
 
 const render = () => {
-  new Vue({
+  instance = new Vue({
     router,
     render: (h) => h(App)
   }).$mount('#app-vue')
@@ -20,17 +20,17 @@ if (!window.__MICRO_WEB__) {
 }
 
 export async function bootstrap() {
-  console.log('vue app bootstrap 加载')
+  console.log('vue2 app bootstrap 加载')
 }
 
 export async function mount() {
   render()
-  console.log('vue app mount 渲染')
+  console.log('vue2 app mount 渲染')
 }
 
 export async function unmount() {
-  console.log('vue app unmount 卸载')
-  // instance = null
+  console.log('vue2 app unmount 卸载')
+  instance = null
   // const { container } = ctx
   // if (container) {
   //   document.querySelector(container).innerHTML = ''
