@@ -14,10 +14,10 @@ export const registerMicroApps = (apps, mainLifecycle) => {
   // 注册子应用
   setList(apps)
 
-  mainLifecycle.beforeLoad[0]()
-  setTimeout(() => {
-    mainLifecycle.mounted[0]()
-  }, 3000)
+  // mainLifecycle.beforeLoad[0]()
+  // setTimeout(() => {
+  //   mainLifecycle.mounted[0]()
+  // }, 3000)
 
   // 保留主应用的生命周期
   setMainLifecycle(mainLifecycle)

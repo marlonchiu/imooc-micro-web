@@ -16,21 +16,30 @@ export const performScript = (script, appName, global) => {
 }
 
 // 执行应用中的 js 内容 eval篇
-export const performScriptForEval = (script) => {
-  eval(script) // app module mount
+
+export const performScriptForEval = (script, appName) => {
+  // eval(script) // app module mount
+
+  const scriptText = `
+    () => {
+      ${script}
+      return window['${appName}']
+    }
+  `
+
+  return eval(scriptText).call(window, window)
+
+  // const globalWindow = (0, eval)(window)
+  // globalWindow.proxy = global
+  // const scriptText = `
+  //   ((window) => {
+  //     try{
+  //       ${script}
+  //     } catch (e) {
+  //       console.error('run script error: ' + e)
+  //     }
+  //     return window['${appName}']
+  //   }).bind(window.proxy)(window.proxy)
+  // `
+  // return eval(scriptText) // app module mount
 }
-// export const performScriptForEval = (script, appName, global) => {
-//   const globalWindow = (0, eval)(window)
-//   globalWindow.proxy = global
-//   const scriptText = `
-//     ((window) => {
-//       try{
-//         ${script}
-//       } catch (e) {
-//         console.error('run script error: ' + e)
-//       }
-//       return window['${appName}']
-//     }).bind(window.proxy)(window.proxy)
-//   `
-//   return eval(scriptText) // app module mount
-// }

@@ -9,18 +9,18 @@ export const registerApp = (list) => {
       beforeLoad: [
         () => {
           loading.openLoading()
-          // console.log('开始加载 -- ', app.name)
+          console.log('开始加载 -- ')
         }
       ],
       mounted: [
         () => {
           loading.closeLoading()
-          // console.log('加载完成 -- ', app.name)
+          console.log('加载完成 -- ')
         }
       ],
       destroyed: [
         () => {
-          // console.log('卸载完成 -- ', app.name)
+          console.log('卸载完成 -- ')
         }
       ]
     }

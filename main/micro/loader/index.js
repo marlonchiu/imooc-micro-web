@@ -1,14 +1,15 @@
 import { fetchResource } from '../util/fetchResource'
 import { findAppByName } from '../util'
-import { performScriptForEval } from '../sandbox/performScript'
+import { sandbox } from '../sandbox'
 
 // 加载和渲染html
 export const htmlLoader = async (app) => {
+  // window.__MICRO_WEB__ = false
   // container 第一个子应用需要显示在哪里  ; entry 子应用的入口
   const { container, entry, name } = app
 
   const [dom, scriptsArray] = await parseHtml(entry, name)
-  console.log('🚀 ~ htmlLoader ~ html:', dom, scriptsArray)
+  // console.log('🚀 ~ htmlLoader ~ html:', dom, scriptsArray)
 
   let containerName = document.querySelector(container)
 
@@ -19,7 +20,7 @@ export const htmlLoader = async (app) => {
   containerName.innerHTML = dom
 
   scriptsArray.map((item) => {
-    performScriptForEval(item, name)
+    sandbox(item, name)
   })
 
   return app
