@@ -1,5 +1,6 @@
 import { fetchResource } from '../util/fetchResource'
 import { findAppByName } from '../util'
+import { performScriptForEval } from '../sandbox/performScript'
 
 // 加载和渲染html
 export const htmlLoader = async (app) => {
@@ -16,6 +17,12 @@ export const htmlLoader = async (app) => {
   }
 
   containerName.innerHTML = dom
+
+  scriptsArray.map((item) => {
+    performScriptForEval(item, name)
+  })
+
+  return app
 }
 
 // 解析html
