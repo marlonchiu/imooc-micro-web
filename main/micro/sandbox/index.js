@@ -1,6 +1,7 @@
 import { findAppByName } from '../util'
 import { performScriptForEval } from './performScript'
-import { SnapShotSandBox } from './snapShotSandBox'
+// import { SnapShotSandBox } from './snapShotSandBox'
+import { ProxySandBox } from './proxySandBox'
 
 // 子应用生命周期，环境变量设置
 
@@ -14,7 +15,9 @@ export const sandbox = (script, appName) => {
   const app = findAppByName(appName)
 
   // 创建沙箱环境
-  const proxy = new SnapShotSandBox()
+  // const proxy = new SnapShotSandBox()
+  const proxy = new ProxySandBox()
+
   if (!app.proxy) {
     app.proxy = proxy
   }
@@ -23,7 +26,8 @@ export const sandbox = (script, appName) => {
   window.__MICRO_WEB__ = true
 
   // 2.获取子应用生命周期
-  const lifeCycles = performScriptForEval(script, appName, app.proxy.proxy)
+  // const lifeCycles = performScriptForEval(script, appName app.proxy.proxy)
+  const lifeCycles = performScriptForEval(script, appName, proxy.proxy)
   console.log('🚀 ~ sandbox ~ lifeCycles:', lifeCycles)
 
   // 检查子应用是否包含必须的方法
