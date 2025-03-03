@@ -3,6 +3,7 @@ import { rewriteRouter } from './router/rewriteRouter'
 import { currentApp } from './util'
 import { setMainLifecycle } from './const/mainLifeCycles'
 import { _CustomEvent } from './event/index'
+import { prefetch } from './loader/prefetch'
 
 const customEvent = new _CustomEvent()
 customEvent.on('custom-event-test', (data) => {
@@ -37,18 +38,21 @@ export const start = async () => {
 
   if (!apps.length) {
     throw Error('子应用列表为空，请查看是否正确注册')
-  } else {
-    // 跳转到第一个子应用
-    const app = currentApp()
-    console.log('跳转到第一个子应用 ', app)
+  }
 
-    if (app) {
-      const { pathname, hash } = window.location
-      const url = pathname + hash
-      window.history.pushState(url, app.name, url || app.activeRule)
-    }
+  // 跳转到第一个子应用
+  const app = currentApp()
+  console.log('跳转到第一个子应用 ', app)
 
+  if (app) {
+    const { pathname, hash } = window.location
+    const url = pathname + hash
+
+    window.history.pushState(url, app.name, url || app.activeRule)
     // 将当前子应用做标记
     window.__CURRENT_SUB_APP__ = app.activeRule
   }
+
+  // 加载完当前子应用后，其他子应用可以先预加载
+  prefetch()
 }
