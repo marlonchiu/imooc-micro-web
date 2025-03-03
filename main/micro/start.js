@@ -2,13 +2,21 @@ import { setList, getList } from './const/subApps'
 import { rewriteRouter } from './router/rewriteRouter'
 import { currentApp } from './util'
 import { setMainLifecycle } from './const/mainLifeCycles'
+import { _CustomEvent } from './event/index'
+
+const customEvent = new _CustomEvent()
+customEvent.on('custom-event-test', (data) => {
+  console.log('customEvent test', data)
+})
+
+window._custom = customEvent
 
 // 包装路由跳转事件，增加拦截功能 todo 相当重要，子应用跳转都依赖此方法
 rewriteRouter()
 
 // 注册子应用列表
 export const registerMicroApps = (apps, mainLifecycle) => {
-  // console.log(apps)
+  console.log(apps)
   console.log('mainLifecycle', mainLifecycle)
   // apps.forEach(app => window.appList.push(app))
   // 注册子应用

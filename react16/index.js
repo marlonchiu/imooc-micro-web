@@ -2,7 +2,7 @@ import React from 'react'
 import './index.scss'
 import ReactDOM from 'react-dom'
 import BasicMap from './src/router'
-// import { setMain } from './src/utils/global'
+import { setMain } from './src/utils/global'
 
 export const render = () => {
   ReactDOM.render(<BasicMap />, document.getElementById('app-react'))
@@ -17,7 +17,8 @@ export async function bootstrap() {
 }
 
 export async function mount(app) {
-  // setMain(app)
+  console.log('🚀 888888888888888888~ mount ~ app:', app)
+  setMain(app)
   console.log('react16 mount')
   render()
 

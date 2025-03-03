@@ -36,7 +36,7 @@ export const bootstrap = async (app) => {
 
   // 获取子应用的dom结构
   await htmlLoader(app)
-  app && app.bootstrap && (await app.bootstrap())
+  app && app.bootstrap && (await app.bootstrap(app))
 
   const appContext = null
   return appContext
@@ -44,7 +44,13 @@ export const bootstrap = async (app) => {
 
 // 渲染应用
 export const mount = async (app) => {
-  app && (await app.mount(app))
+  // app && app.mount && (await app.mount(app))
+  app &&
+    app.mount &&
+    (await app.mount({
+      appInfo: app.appInfo,
+      entry: app.entry
+    }))
 
   await runMainLifeCycle('mounted')
 }

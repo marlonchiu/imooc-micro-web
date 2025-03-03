@@ -18,13 +18,14 @@ export async function bootstrap() {
 }
 
 export async function mount() {
-  window.a = 1
+  // window.a = 1
+  window._custom.emit('custom-event-test', { a: 1 })
   render()
   console.log('vue3.0 app mount 渲染')
 }
 
 export async function unmount() {
-  instance.unmount()
-  instance = null
+  // instance.unmount()
+  // instance = null
   console.log('vue3.0 app unmount 卸载')
 }
