@@ -27,7 +27,7 @@ export const sandbox = (script, appName) => {
 
   // 2.获取子应用生命周期
   // const lifeCycles = performScriptForEval(script, appName app.proxy.proxy)
-  const lifeCycles = performScriptForEval(script, appName, proxy.proxy)
+  const lifeCycles = performScriptForEval(script, app.name, proxy.proxy)
   console.log('🚀 ~ sandbox ~ lifeCycles:', lifeCycles)
 
   // 检查子应用是否包含必须的方法

@@ -13,26 +13,26 @@ export const navList = [
   },
   {
     name: 'react16',
+    activeRule: '/react16',
+    container: '#micro-container',
     entry: '//localhost:9003/',
     loading,
-    container: '#micro-container',
-    activeRule: '/react16',
     appInfo
   },
   {
     name: 'vue2',
+    activeRule: '/vue2',
+    container: '#micro-container',
     entry: '//localhost:9004/',
     loading,
-    container: '#micro-container',
-    activeRule: '/vue2',
     appInfo
   },
   {
     name: 'vue3',
+    activeRule: '/vue3',
+    container: '#micro-container',
     entry: '//localhost:9005/',
     loading,
-    container: '#micro-container',
-    activeRule: '/vue3',
     appInfo
   }
 ]

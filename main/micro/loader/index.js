@@ -7,7 +7,6 @@ const cache = {} // 根据应用名称作缓存
 
 // 加载和渲染html
 export const htmlLoader = async (app) => {
-  // window.__MICRO_WEB__ = false
   // container 第一个子应用需要显示在哪里  ; entry 子应用的入口
   const { container, entry, name } = app
 
@@ -42,7 +41,7 @@ export const parseHtml = async (appEntry, appName) => {
   div.innerHTML = html
 
   let scriptsArray = []
-  const [scriptUrls, scripts, elements] = getResources(div, findAppByName(appName))
+  const [scriptUrls, scripts, elements] = await getResources(div, findAppByName(appName))
 
   const fetchedScript = await Promise.all(scriptUrls.map((url) => fetchResource(url)))
   scriptsArray = scripts.concat(fetchedScript)

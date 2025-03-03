@@ -4,10 +4,11 @@ let list = []
 export const getList = () => list
 
 export const setList = (data) => {
-  if (Array.isArray(data)) {
-    list = data
-    return
-  }
+  // if (Array.isArray(data)) {
+  //   list = data
+  //   return
+  // }
 
-  list.push(data)
+  // list.push(data)
+  list = data
 }
