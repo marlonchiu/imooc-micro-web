@@ -1,0 +1,14 @@
+{
+  "name": "a-marlon-micro-frame",
+  "version": "1.0.4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "微前端"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "一个测试的微前端框架发布，不支持下载"
+}

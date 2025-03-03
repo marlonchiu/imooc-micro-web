@@ -1,4 +1,6 @@
-import { registerMicroApps, start, createStore } from '../../micro/index'
+// import { registerMicroApps, start, createStore } from '../../micro/index'
+// 使用自己发布的框架
+import { registerMicroApps, start, createStore } from 'a-marlon-micro-frame'
 import { loading } from '../store'
 
 const store = createStore()
