@@ -37,11 +37,12 @@ export const filterApp = (key, rule) => {
 // 查看当前路由是否有变化
 export const isTurnChild = () => {
   window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__
-  if (window.__CURRENT_SUB_APP__ === window.location.pathname) {
+  const currentSubApp = window.location.pathname.match(/(\/\w+)/)
+
+  if (window.__CURRENT_SUB_APP__ === currentSubApp[0]) {
     return false
   }
 
-  const currentSubApp = window.location.pathname.match(/(\/\w+)/)
 
   if (!currentSubApp) {
     return false
