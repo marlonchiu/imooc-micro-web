@@ -19,7 +19,12 @@ export async function bootstrap() {
 
 export async function mount() {
   // window.a = 1
-  window._custom.emit('custom-event-test', { a: 1 })
+  // window._custom.emit('custom-event-test', { a: 1 })
+  const storeData = window.store.getStore()
+  window.store.updateStore({
+    ...storeData,
+    a: 3
+  })
   render()
   console.log('vue3.0 app mount 渲染')
 }
