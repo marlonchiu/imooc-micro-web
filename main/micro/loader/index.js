@@ -2,6 +2,9 @@ import { fetchResource } from '../util/fetchResource'
 import { findAppByName } from '../util'
 import { sandbox } from '../sandbox'
 
+// 应用缓存
+const cache = {} // 根据应用名称作缓存
+
 // 加载和渲染html
 export const htmlLoader = async (app) => {
   // window.__MICRO_WEB__ = false
@@ -28,6 +31,11 @@ export const htmlLoader = async (app) => {
 
 // 解析html
 export const parseHtml = async (appEntry, appName) => {
+  if (cache[appName]) {
+    // 缓存请求到的script，感觉有点粗暴
+    return cache[appName]
+  }
+
   const html = await fetchResource(appEntry)
 
   const div = document.createElement('div')
@@ -38,6 +46,8 @@ export const parseHtml = async (appEntry, appName) => {
 
   const fetchedScript = await Promise.all(scriptUrls.map((url) => fetchResource(url)))
   scriptsArray = scripts.concat(fetchedScript)
+
+  cache[appName] = [elements, scriptsArray]
 
   return [elements, scriptsArray]
 }
