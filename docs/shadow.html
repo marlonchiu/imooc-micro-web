@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>样式隔离</title>
+  </head>
+  <body>
+    <!-- css module (主要在webpack 中配置) -->
+    <!-- shadow dom  (新语法 兼容性要考虑)-->
+    <!-- minicss -->
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+      const box1 = document.getElementById('box1')
+      // 开启shadow dom模式
+      const shadow1 = box1.attachShadow({ mode: 'open' })
+      const p1 = document.createElement('p')
+      p1.className = 'one'
+      p1.innerText = '第一个内容'
+      const style1 = document.createElement('style')
+      style1.textContent = `
+      .one {
+        color:red;
+      }
+      `
+      shadow1.appendChild(p1)
+      shadow1.appendChild(style1)
+
+      const box2 = document.getElementById('box2')
+      //开启shadow dom模式
+      const shadow2 = box2.attachShadow({ mode: 'open' })
+      const p2 = document.createElement('div')
+      p2.className = 'one'
+      p2.innerText = '第二个内容'
+      const style2 = document.createElement('style')
+      style2.textContent = `
+        .one{
+          color:blue;
+        }
+      `
+      shadow2.appendChild(p2)
+      shadow2.appendChild(style2)
+    </script>
+  </body>
+</html>
