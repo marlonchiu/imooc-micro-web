@@ -2,6 +2,8 @@
 
 > [慕课网 | 从零打造微前端框架：实战“汽车资讯平台”项目](https://coding.imooc.com/class/520.html)
 
+> [参考 iheqi/mirco-web-test](https://github.com/iheqi/mirco-web-test)
+
 ## 启动主应用
 
 ```shell script
