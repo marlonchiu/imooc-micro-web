@@ -4,6 +4,8 @@
 
 > [参考 iheqi/mirco-web-test](https://github.com/iheqi/mirco-web-test)
 
+> [qiankun 文档](https://qiankun.umijs.org/zh/guide/getting-started)
+
 ## 启动主应用
 
 ```shell script

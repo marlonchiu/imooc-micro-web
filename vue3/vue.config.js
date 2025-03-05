@@ -1,11 +1,11 @@
-const path = require('path');
-const { name } = require('./package');
+const path = require('path')
+const { name } = require('./package')
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
-const port = 9005;
+const port = 9005
 
 module.exports = {
   outputDir: 'dist',
@@ -18,22 +18,22 @@ module.exports = {
     disableHostCheck: true,
     port,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
+      'Access-Control-Allow-Origin': '*'
+    }
   },
   // 自定义webpack配置
   configureWebpack: {
     resolve: {
       alias: {
-        '@': resolve('src'),
-      },
+        '@': resolve('src')
+      }
     },
     output: {
-      // 把子应用打包成 umd 库格式
-      libraryTarget: 'umd',
       filename: 'vue3.js',
-      library: 'vue3',
-      jsonpFunction: `webpackJsonp_${name}`,
-    },
-  },
-};
+      library: `${name}-[name]`,
+      libraryTarget: 'umd', // 把微应用打包成 umd 库格式
+      // webpack 5 需要把 jsonpFunction 替换成 chunkLoadingGlobal
+      jsonpFunction: `webpackJsonp_${name}`
+    }
+  }
+}

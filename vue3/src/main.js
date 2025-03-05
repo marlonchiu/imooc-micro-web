@@ -10,7 +10,7 @@ function render() {
   instance.use(router).mount('#app')
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
@@ -19,13 +19,7 @@ export async function bootstrap() {
 }
 
 export async function mount(app) {
-  // window.a = 1
-  // window._custom.emit('custom-event-test', { a: 1 })
-  // const storeData = window.store.getStore()
-  // window.store.update({
-  //   ...storeData,
-  //   a: 3
-  // })
+
   setMain(app)
   render()
   console.log('vue3.0 app mount 渲染')
@@ -36,6 +30,7 @@ export async function unmount(ctx) {
   instance = null
   const { container } = ctx
   if (container) {
-    document.querySelector(container).innerHTML = ''
+    // document.querySelector(container).innerHTML = ''
+    container.innerHTML = ''
   }
 }

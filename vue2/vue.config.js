@@ -30,11 +30,10 @@ module.exports = {
       }
     },
     output: {
-      // 把子应用打包成 umd 库格式
-      libraryTarget: 'umd',
       filename: 'vue2.js',
-      // console 获取 window.vue2
-      library: 'vue2',
+      library: `${name}-[name]`,
+      libraryTarget: 'umd', // 把微应用打包成 umd 库格式
+      // webpack 5 需要把 jsonpFunction 替换成 chunkLoadingGlobal
       jsonpFunction: `webpackJsonp_${name}`
     }
   }

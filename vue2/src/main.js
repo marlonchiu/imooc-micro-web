@@ -15,7 +15,7 @@ const render = () => {
   }).$mount('#app-vue')
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
@@ -28,11 +28,12 @@ export async function mount() {
   console.log('vue2 app mount 渲染')
 }
 
-export async function unmount() {
+export async function unmount(ctx) {
   console.log('vue2 app unmount 卸载')
   instance = null
-  // const { container } = ctx
-  // if (container) {
-  //   document.querySelector(container).innerHTML = ''
-  // }
+  const { container } = ctx
+  if (container) {
+    // document.querySelector(container).innerHTML = ''
+    container.innerHTML = ''
+  }
 }
