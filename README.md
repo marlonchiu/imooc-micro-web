@@ -4,6 +4,10 @@
 
 > [参考 iheqi/mirco-web-test](https://github.com/iheqi/mirco-web-test)
 
+> [single-spa.js.org](https://single-spa.js.org/)
+
+> [single-spa 中文](https://zh-hans.single-spa.js.org/)
+
 ## 启动主应用
 
 ```shell script

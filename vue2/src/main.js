@@ -2,37 +2,29 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // import store from './store'
+import singleSpaVue from 'single-spa-vue'
 
 Vue.config.productionTip = false
 
-let instance = null
-console.log(instance)
-
 const render = () => {
-  instance = new Vue({
+  new Vue({
     router,
     render: (h) => h(App)
   }).$mount('#app-vue')
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.singleSpaNavigate) {
   render()
 }
 
-export async function bootstrap() {
-  console.log('vue2 app bootstrap 加载')
-}
+const vueLifeCycles = singleSpaVue({
+  Vue,
+  appOptions: {
+    router,
+    render: (h) => h(App)
+  }
+})
 
-export async function mount() {
-  render()
-  console.log('vue2 app mount 渲染')
-}
-
-export async function unmount() {
-  console.log('vue2 app unmount 卸载')
-  instance = null
-  // const { container } = ctx
-  // if (container) {
-  //   document.querySelector(container).innerHTML = ''
-  // }
-}
+export const bootstrap = vueLifeCycles.bootstrap
+export const mount = vueLifeCycles.mount
+export const unmount = vueLifeCycles.unmount

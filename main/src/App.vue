@@ -53,10 +53,14 @@ export default {
 
 <style>
 html,
-body,
-#micro_web_main_app {
+body {
   width: 100%;
   height: 100%;
+}
+
+#micro_web_main_app {
+  width: 100%;
+  /* height: 100%; */
 }
 * {
   margin: 0;

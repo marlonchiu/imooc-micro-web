@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import { registerApp } from './utils/index'
+import { registerApp } from './utils/single-spa'
 import { navList } from './store/leftNav'
 
 registerApp(navList)

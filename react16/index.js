@@ -1,40 +1,29 @@
 import React from 'react'
-import './index.scss'
 import ReactDOM from 'react-dom'
+import './index.scss'
 import BasicMap from './src/router'
-import { setMain } from './src/utils/global'
+
+// 注意 Singlespacontext 是一个为react@16.3(如果可用的话)提供的上下文，包含了 singleSpa props
+import singleSpaReact, { SingleSpaContext } from 'single-spa-react'
+console.log('🚀 ~ SingleSpaContext:', SingleSpaContext)
 
 export const render = () => {
   ReactDOM.render(<BasicMap />, document.getElementById('app-react'))
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.singleSpaNavigate) {
   render()
 }
 
-export async function bootstrap() {
-  console.log('react16 bootstrap')
-}
-
-export async function mount(app) {
-  console.log('🚀 888888888888888888~ mount ~ app:', app)
-  setMain(app)
-  console.log('react16 mount')
-  render()
-
-  // setTimeout(() => {
-  //   // 调用隐藏底部方法 false 隐藏  true 显示
-  //   app.appInfo.footerState.changeFooter(false)
-  //
-  //   // 调用隐藏头部方法 false 隐藏  true 显示
-  //   app.appInfo.headerState.changeHeader(false)
-  // }, 3000)
-}
-
-export async function unmount(ctx) {
-  console.log('react16 unmount')
-  const { container } = ctx
-  if (container) {
-    document.querySelector(container).innerHTML = ''
+const reactLifeCycles = singleSpaReact({
+  React,
+  ReactDOM,
+  rootComponent: BasicMap,
+  errorBoundary(err, info, props) {
+    // https://reactjs.org/docs/error-boundaries.html
+    return <div>This renders when a catastrophic error occurs</div>
   }
-}
+})
+export const bootstrap = reactLifeCycles.bootstrap
+export const mount = reactLifeCycles.mount
+export const unmount = reactLifeCycles.unmount

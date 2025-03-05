@@ -7,11 +7,12 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode production"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.56.1",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "single-spa-react": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
