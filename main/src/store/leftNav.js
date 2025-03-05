@@ -9,7 +9,8 @@ export const navList = [
     container: '#micro-container',
     entry: '//localhost:9002',
     loading,
-    appInfo
+    appInfo,
+    props: appInfo
   },
   {
     name: 'react16',
@@ -17,7 +18,8 @@ export const navList = [
     container: '#micro-container',
     entry: '//localhost:9003',
     loading,
-    appInfo
+    appInfo,
+    props: appInfo
   },
   {
     name: 'vue2',
@@ -25,7 +27,8 @@ export const navList = [
     container: '#micro-container',
     entry: '//localhost:9004',
     loading,
-    appInfo
+    appInfo,
+    props: appInfo
   },
   {
     name: 'vue3',
@@ -33,6 +36,7 @@ export const navList = [
     container: '#micro-container',
     entry: '//localhost:9005',
     loading,
-    appInfo
+    appInfo,
+    props: appInfo
   }
 ]
